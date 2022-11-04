@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form action='favoris'>
+      <button type="submit">Favoris</button>
+    </form>
+
+    <table>
+      <% results.forEach(function(pokemon){ %>
+          <tr>
+            <td><%= pokemon.name %></td>
+            <td><%= pokemon.url %></td>
+            <td> <form method="POST" action='favoris/addFavoris/<%= pokemon.name %>'><button type="submit">Ajouter au favoris</button></form></td>
+            <td>
+              <form method="GET" action='/<%= pokemon.name %>'><button type="submit">Détails</button></form></td>
+          </tr>
+      <% }); %>
+    </table>
+  </body>
+</html>
